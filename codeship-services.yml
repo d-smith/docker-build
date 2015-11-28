@@ -1,0 +1,4 @@
+sample:
+    build:
+        image: sample
+        dockerfile_path: Dockerfile

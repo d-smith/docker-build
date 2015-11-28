@@ -1,0 +1,6 @@
+- name: unit tests
+  service: sample
+  command: go test
+- name: acceptance-tests
+  service: sample
+  command: gucumber
