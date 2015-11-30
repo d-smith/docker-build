@@ -2,3 +2,9 @@ sample:
     build:
         image: sample
         dockerfile_path: Dockerfile
+    environments:
+        MB_URL: "http://mbhost:2525"
+    links:
+        - mb
+mb:
+    image: dasmith/mb:1.1
