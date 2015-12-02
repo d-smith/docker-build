@@ -5,7 +5,54 @@ import (
 	"net/http"
 	"fmt"
 	"io/ioutil"
+	"os"
 )
+
+
+
+
+func postConfig() {
+
+	payloadReader,err := os.Open("imposter.json")
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	defer payloadReader.Close()
+
+	resp, err := http.Post("http://mb:2525/imposters", "application/json", payloadReader)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Print(err.Error())
+		return
+	}
+
+	fmt.Println("Read ->", string(body))
+	resp.Body.Close()
+}
+
+func getAndPrint(endpoint string) {
+	resp, err := http.Get(endpoint)
+	if err != nil {
+		fmt.Print(err.Error())
+		return
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Print(err.Error())
+		return
+	}
+
+	fmt.Println("Read ->", string(body))
+	resp.Body.Close()
+}
 
 func init() {
 	Given(`^a symbbol$`, func() {
@@ -18,20 +65,12 @@ func init() {
 
 	Then(`^the current price is returned$`, func() {
 		//T.Errorf("fail!")
-		resp, err := http.Get("http://mb:2525/imposters")
-		if err != nil {
-			fmt.Print(err.Error())
-			return
-		}
+		getAndPrint("http://mb:2525/imposters")
 
-		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			fmt.Print(err.Error())
-			return
-		}
+		postConfig()
 
-		fmt.Println("Read ->", string(body))
-		resp.Body.Close()
+		getAndPrint("http://mb:2525/imposters")
+		getAndPrint("http://mb:2525/imposters/4545")
 	})
 
 }
