@@ -1,6 +1,9 @@
 - name: unit tests
-  service: sample
+  service: buildsvc
   command: go test ./...
+- name: atestimg
+  service: atestprepsvc
+  command: ls /
 - name: acceptance-tests
-  service: sample
+  service: atestsvc
   command: gucumber

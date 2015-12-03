@@ -1,10 +1,27 @@
-sample:
+buildsvc:
     build:
         image: sample
         dockerfile_path: Dockerfile
-    environments:
-        MB_URL: "http://mbhost:2525"
+
+atestprepsvc:
+    build:
+        image: atest
+        dockerfile_path: Dockerfile.testprep
     links:
         - mb
+
 mb:
     image: dasmith/mb:1.1
+
+atestsvc:
+    build:
+        image: testdriver
+        dockerfile_path: Dockerfile.test
+    links:
+        - testimg
+        - mb
+
+testimg:
+    image: atest
+    links:
+        - mb

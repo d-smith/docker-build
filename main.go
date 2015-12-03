@@ -20,7 +20,9 @@ func handler(ctx context.Context, rw http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	wrapped := quote.Middleware(customctx.ContextHandlerFunc(quote.NewQuoteHandler("localhost:4545")))
+	var endpoint = "mb:4545"
+	fmt.Println("starting wrapped quote at ", endpoint)
+	wrapped := quote.Middleware(customctx.ContextHandlerFunc(quote.NewQuoteHandler(endpoint)))
 	wrapped = timing.TimerMiddleware(wrapped)
 
 	h := &customctx.ContextAdapter{
