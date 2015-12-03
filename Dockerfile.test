@@ -1,0 +1,4 @@
+FROM sample
+
+WORKDIR $GOPATH/src/github.com/d-smith/docker-build
+RUN go get github.com/lsegal/gucumber/cmd/gucumber
