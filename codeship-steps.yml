@@ -3,8 +3,13 @@
   command: go test ./...
 - name: atestimg
   service: atestprepsvc
-#  command: cp $GOPATH/src/github.com/d-smith/docker-build /artifact
   command: cp /app/main /artifacts/main
 - name: acceptance-tests
   service: atestsvc
   command: gucumber
+- name: xavi-build
+  service: artifact
+  type: push
+  image_name: dasmith/xavi-codeship
+  registry: https://index.docker.io/v1/
+  encrypted_dockercfg_path: dockercfg.encrypted

@@ -32,3 +32,8 @@ data:
   image: busybox
   volumes:
     - ./tmp:/artifacts
+
+artifact:
+    build:
+        image: dasmith/xavi
+        dockerfile_path: Dockerfile.xavi

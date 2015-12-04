@@ -1,0 +1,4 @@
+FROM scratch
+RUN mkdir /app
+ADD xavi /app
+CMD /app/xavi
