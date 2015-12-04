@@ -11,11 +11,4 @@ Note the project is setup to build in codeship's docker build infrastructure. Re
 and codeship-steps.yml files.
 
 Next:
-* Dockerfile - build, unit test
-* Dockerfile - build test image
-* Dockerfile - gucumber, test against test image as service, push as official image
-
-Then:
-
-* Build copies the binary, then we build from mb-alpine as the base the test image...
-
+* Build runtime image for lean runtime image (maybe via scratch?)
