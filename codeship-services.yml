@@ -7,6 +7,8 @@ atestprepsvc:
     build:
         image: atest
         dockerfile_path: Dockerfile.testprep
+    volumes_from:
+        - data
     links:
         - mb
 
@@ -25,3 +27,8 @@ testimg:
     image: atest
     links:
         - mb
+
+data:
+  image: busybox
+  volumes:
+    - ./tmp:/artifacts

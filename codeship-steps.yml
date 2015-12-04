@@ -3,7 +3,8 @@
   command: go test ./...
 - name: atestimg
   service: atestprepsvc
-  command: ls /
+#  command: cp $GOPATH/src/github.com/d-smith/docker-build /artifact
+  command: cp /app/main /artifacts/main
 - name: acceptance-tests
   service: atestsvc
   command: gucumber
