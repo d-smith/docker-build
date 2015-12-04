@@ -10,6 +10,6 @@
 - name: xavi-build
   service: artifact
   type: push
-  image_name: dasmith/xavi-codeship
+  image_name: dasmith/quote
   registry: https://index.docker.io/v1/
   encrypted_dockercfg_path: dockercfg.encrypted
