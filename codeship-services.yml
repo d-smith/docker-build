@@ -35,5 +35,5 @@ data:
 
 artifact:
     build:
-        image: dasmith/xavi
-        dockerfile_path: Dockerfile.xavi
+        image: dasmith/quote
+        dockerfile_path: Dockerfile.main
