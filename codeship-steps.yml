@@ -1,6 +1,9 @@
 - name: unit tests
   service: buildsvc
   command: go test ./...
+- name: atestimgls
+  service: atestprepsvc
+  command: ls /app/main
 - name: atestimg
   service: atestprepsvc
   command: cp /app/main /artifacts/main

@@ -31,7 +31,7 @@ testimg:
 data:
   image: busybox
   volumes:
-    - ./tmp:/artifacts
+    - .:/artifacts
 
 artifact:
     build:

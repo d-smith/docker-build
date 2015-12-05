@@ -1,3 +1,4 @@
 FROM scratch
-COPY ./tmp/main /
-CMD ["/main"]
+
+COPY main /opt/
+CMD ["/opt/main"]
