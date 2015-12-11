@@ -1,0 +1,8 @@
+# Build a cacheable baseline image with golang + node/npm/mountebank. This will be built and pushed to
+# docker hub manually. Build via docker build -t dasmith/gomb -f Dockerfile.gomb
+
+FROM golang:latest
+
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install -g mountebank

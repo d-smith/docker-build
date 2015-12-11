@@ -1,0 +1,12 @@
+# Dockerfile to layer on project dependecies. The dependencies where gleaned via go list -f {{.Deps}}, and the
+# standard library packages removed.
+# Build via Build via docker build -t dasmith/dockerbuildprojectdeps -f Dockerfile.projectdeps .
+
+FROM dasmith/gomb
+
+RUN echo $GOPATH
+RUN echo ls $GOPATH/src
+RUN mkdir -p  $GOPATH/src/github.com/d-smith/docker-build
+
+RUN go get golang.org/x/net/context
+RUN go get github.com/lsegal/gucumber/cmd/gucumber
