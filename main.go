@@ -12,6 +12,7 @@ import (
 	"github.com/d-smith/docker-build/services/quote"
 	"golang.org/x/net/context"
 	"net/http"
+	"os"
 )
 
 func handler(ctx context.Context, rw http.ResponseWriter, req *http.Request) {
@@ -21,6 +22,13 @@ func handler(ctx context.Context, rw http.ResponseWriter, req *http.Request) {
 
 func main() {
 	var endpoint = "mb:4545"
+
+	endPointFromEnv := os.Getenv("QUOTE_ENDPOINT")
+	if endPointFromEnv != "" {
+		endpoint = endPointFromEnv
+		fmt.Println("Using endpoint from environment:", endpoint )
+	}
+
 	fmt.Println("starting wrapped quote at ", endpoint)
 	wrapped := quote.Middleware(customctx.ContextHandlerFunc(quote.NewQuoteHandler(endpoint)))
 	wrapped = timing.TimerMiddleware(wrapped)
