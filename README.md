@@ -29,6 +29,11 @@ docker build -t dasmith/dockerbuildprojectdeps -f Dockerfile.projectdeps .
 docker push dasmith/dockerbuildprojectdeps
 </pre>
 
+The docker files for the prerequisites are in the prereqs directory.
+
+Note that both are available from DockerHub, so you can just do a `docker pull` on them if you do not need to
+modify them.
+
 With the prerequisite images in place, we run the pipeline via `jet steps`. Note that the final push to Dockerhub is 
 not done in the local build; a push to github triggers the codeship build, which will do the final push if
 all the stanges succeed.
