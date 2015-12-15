@@ -1,11 +1,11 @@
 buildsvc:
     build:
-        image: sample
+        image: dasmith/sample
         dockerfile_path: Dockerfile
 
 
 copysvc:
-    image: sample
+    image: dasmith/sample
     volumes_from:
                 - data
 
@@ -15,7 +15,7 @@ mb:
 
 atestsvc:
     build:
-        image: testdriver
+        image: dasmith/testdriver
         dockerfile_path: Dockerfile.test
     links:
         - testimg
