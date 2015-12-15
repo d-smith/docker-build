@@ -1,4 +1,0 @@
-FROM sample
-
-ADD ./run.sh /
-CMD /run.sh

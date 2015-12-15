@@ -3,15 +3,6 @@ buildsvc:
         image: sample
         dockerfile_path: Dockerfile
 
-atestprepsvc:
-    build:
-        image: atest
-        dockerfile_path: Dockerfile.testprep
-    volumes_from:
-        - data
-    links:
-        - mb
-
 mb:
     image: dasmith/mb:1.1
 
@@ -24,7 +15,7 @@ atestsvc:
         - mb
 
 testimg:
-    image: atest
+    image: dasmith/quote
     links:
         - mb
 

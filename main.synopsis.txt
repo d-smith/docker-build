@@ -1,0 +1,2 @@
+Run main with no arguments. Set the QUOTE_ENDPOINT environment variable to listen on endpoints
+different than mb:4545

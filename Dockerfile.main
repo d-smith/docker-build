@@ -1,4 +1,5 @@
-FROM scratch
+FROM dasmith/scratch-synopsis
 
+COPY main.synopsis.txt /opt/
 COPY main /opt/
 CMD ["/opt/main"]

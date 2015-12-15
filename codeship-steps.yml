@@ -1,9 +1,9 @@
 - name: unit tests
   service: buildsvc
   command: go test ./...
-- name: atestimg
-  service: atestprepsvc
-  command: cp /app/main /artifacts/main
+- name: prepimg
+  service: artifact
+  command: /opt/synopsis /opt/main.synopsis.txt
 - name: acceptance-tests
   service: atestsvc
   command: gucumber
