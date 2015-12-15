@@ -9,10 +9,10 @@
 - name: prepimg
   service: artifact
   command: /opt/synopsis /opt/main.synopsis.txt
-#- name: acceptance-tests
-#  service: atestsvc
-#  command: gucumber
-#- name: xavi-build
+- name: acceptance-tests
+  service: atestsvc
+  command: gucumber
+#- name: main-build
 #  service: artifact
 #  type: push
 #  image_name: dasmith/quote
