@@ -1,6 +1,8 @@
 - name: unit tests
   service: buildsvc
   command: go test ./...
+  service: buildsvc
+  command: cp /app/main /artifacts/main
 - name: prepimg
   service: artifact
   command: /opt/synopsis /opt/main.synopsis.txt
