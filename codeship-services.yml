@@ -3,6 +3,13 @@ buildsvc:
         image: sample
         dockerfile_path: Dockerfile
 
+
+copysvc:
+    image: sample
+    volumes_from:
+                - data
+
+
 mb:
     image: dasmith/mb:1.1
 

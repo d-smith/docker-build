@@ -1,7 +1,8 @@
 - name: unit tests
   service: buildsvc
   command: go test ./...
-  service: buildsvc
+- name: grab binary
+  service: copysvc
   command: cp /app/main /artifacts/main
 - name: prepimg
   service: artifact
