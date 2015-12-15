@@ -5,13 +5,6 @@ buildsvc:
     volumes_from:
         - data
 
-
-#copysvc:
-#    image: busybox
-#    volumes_from:
-#                - data
-
-
 mb:
     image: dasmith/mb:1.1
 

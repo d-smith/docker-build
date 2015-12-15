@@ -3,18 +3,15 @@
   command: go test ./...
   service: buildsvc
   command: cp /app/main /artifacts/main
-#- name: grab binary
-#  service: copysvc
-#  command: cp /app/main /artifacts/main
 - name: prepimg
   service: artifact
   command: /opt/synopsis /opt/main.synopsis.txt
 - name: acceptance-tests
   service: atestsvc
   command: gucumber
-#- name: main-build
-#  service: artifact
-#  type: push
-#  image_name: dasmith/quote
-#  registry: https://index.docker.io/v1/
-#  encrypted_dockercfg_path: dockercfg.encrypted
+- name: main-build
+  service: artifact
+  type: push
+  image_name: dasmith/quote
+  registry: https://index.docker.io/v1/
+  encrypted_dockercfg_path: dockercfg.encrypted
