@@ -2,12 +2,14 @@ buildsvc:
     build:
         image: dasmith/sample
         dockerfile_path: Dockerfile
-
-
-copysvc:
-    image: dasmith/sample
     volumes_from:
-                - data
+        - data
+
+
+#copysvc:
+#    image: busybox
+#    volumes_from:
+#                - data
 
 
 mb:
